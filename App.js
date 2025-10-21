@@ -8,7 +8,7 @@ const app = express();
 const PORT = 3011;
 
 app.use(express.static('public'));
-
+app.use(express.urlencoded({ extended: true }));
 
 // Define a default "route" ('/')
 // req: contains information about the incoming request
@@ -21,7 +21,35 @@ app.get('/', (req, res) => {
 
 });
 
+// Add a route for the form submission
+
+const appointmentsArray = []
+
+app.post('/submit-order', (req, res) => {
+
+
+    // Create a JSON object to store the order data
+
+    const appointment = {
+
+        fname: req.body.fname,
+
+        lname: req.body.lname,
+
+        date: req.body.date,
+
+        time: req.body.time,
+
+        timestamp: new Date()
+
+      };
+
+    appointmentsArray.push(appointment);
+    res.sendFile(`${import.meta.dirname}/views/response.html`)
+});
+
 // Start the server and listen on the specified port 
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 }); 
+
