@@ -1,0 +1,15 @@
+
+#first-name-error {
+    color: red;
+    margin: 0em;
+    opacity: 0%;
+    display: block;
+}
+
+#last-name-error {
+    color: red;
+    margin: 0em;
+    opacity: 0%;
+    display: block;
+}
+
