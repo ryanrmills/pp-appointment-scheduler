@@ -1,15 +1,11 @@
 
-#first-name-error {
+#fname-error {
     color: red;
     margin: 0em;
-    opacity: 0%;
-    display: block;
 }
 
-#last-name-error {
+#lname-error {
     color: red;
     margin: 0em;
-    opacity: 0%;
-    display: block;
 }
 

@@ -5,28 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Appointments</title>
     <link rel="stylesheet" href="../public/styles/styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+
+    <link
+        rel="stylesheet"
+        href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css"
+    />
+    <script type="text/javascript" language="javascript" class="init">
+        $('#example').DataTable( {
+            data: appointmentsArray
+        } );
+    </script>
+    
 </head>
 <body>
     <h1>All Appointments</h1>
 
-    <table border="1">
+    <table class="#example" id="example">
         <thead>
-            <tr>
+            <tr class="headstyle">
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Submitted</th>
+                <th>Email</th>
+                <th>Met From</th>
+                <th>Message</th>
+                <th>Format</th>
             </tr>
         </thead>
-        <tbody id="appointments-body">
+        <tbody>
+            
         </tbody>
     </table>
 
-    <script>
-        fetch('/get-appointments')
-            .then(res => res.json())
-            .then(data => console.log(data));
-    </script>
+    
 </body>
+<script>let table = new DataTable('example');</script>
 </html>
