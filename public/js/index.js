@@ -1,26 +1,26 @@
-let firstName = document.getElementById('fname-input');
-let lastName = document.getElementById('lname-input');
+const form = document.querySelector("form");
+const firstName = document.getElementById("fname-input");
+const lastName = document.getElementById("lname-input");
+const fnameError = document.getElementById("fname-error");
+const lnameError = document.getElementById("lname-error");
 
-let form = document.querySelector('form');
+form.addEventListener("submit", (e) => {
+  let valid = true;
 
-form.addEventListener('submit', function(event) {
-    let valid = true;
+  fnameError.textContent = "";
+  lnameError.textContent = "";
 
+  if (firstName.value.trim() === "") {
+    fnameError.textContent = "First name is required.";
+    fnameError.style.color = "red";
+    valid = false;
+  }
 
-    if (firstName.value.trim() === '') {
-        document.getElementById('first-name-error').style.opacity = '100%';
-        valid = false;
-    }
+  if (lastName.value.trim() === "") {
+    lnameError.textContent = "Last name is required.";
+    lnameError.style.color = "red";
+    valid = false;
+  }
 
-    if (lastName.value.trim() === '') {
-        document.getElementById('last-name-error').style.opacity = '100%';
-        valid = false;
-    }
-
-    if (valid === true) {
-        form.submit(); 
-        document.getElementById('first-name-error').style.opacity = '0%';
-        document.getElementById('last-name-error').style.opacity = '0%';
-    }
-    event.preventDefault();
+  if (!valid) e.preventDefault();
 });

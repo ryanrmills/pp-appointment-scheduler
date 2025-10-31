@@ -14,18 +14,23 @@ app.use(express.urlencoded({ extended: true }));
 // req: contains information about the incoming request
 // res: allows us to send back a response to the client
 app.get('/', (req, res) => {
-
-
     res.sendFile(`${import.meta.dirname}/views/index.html`);
-
-
 });
+
+app.get("/admin", (req, res) => {
+    res.sendFile(`${import.meta.dirname}/views/admin.html`);
+});
+
+app.get("/admin", (req, res) => {
+      console.log(appointmentsArray)
+      res.sendFile(`${import.meta.dirname}/views/admin.html`);
+  });
 
 // Add a route for the form submission
 
 const appointmentsArray = []
 
-app.post('/submit-order', (req, res) => {
+app.post('/submit', (req, res) => {
 
 
     // Create a JSON object to store the order data
