@@ -18,12 +18,9 @@ app.get('/', (req, res) => {
 });
 
 app.get("/admin", (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/admin.html`);
-});
-
-app.get("/admin", (req, res) => {
       console.log(appointmentsArray)
       res.sendFile(`${import.meta.dirname}/views/admin.html`);
+      res.json({adminAppointments : appointmentsArray});
   });
 
 // Add a route for the form submission
@@ -50,6 +47,7 @@ app.post('/submit', (req, res) => {
       };
 
     appointmentsArray.push(appointment);
+    console.log(appointmentsArray);
     res.sendFile(`${import.meta.dirname}/views/response.html`)
 });
 
